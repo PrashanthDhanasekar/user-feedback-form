@@ -15,7 +15,7 @@ This is a simple Customer Feedback Form built with HTML and JavaScript. It allow
 ## How to Use
 
 1. Clone or download the repository.
-2. Open the `index.html` file in your browser.
+2. Open the `html` file in your browser.
 3. Fill in the feedback form and click the **Submit** button.
 4. After submission, your input will be displayed below the form.
 
