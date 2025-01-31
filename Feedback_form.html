@@ -10,8 +10,7 @@
     <table align="center">
         <tr>
             <td>
-                <h3 style="padding-left: 130px;"
-                style="padding-bottom: 20px;">Customer Feedback</h3>
+                <h3 style="padding-left: 130px; padding-bottom: 20px;">Customer Feedback</h3>
                 <form action="#" method="get">
                     <table cellpadding="5">
                         <tr id="row1">
@@ -35,7 +34,7 @@
                             <td><textarea id="message" name="message" rows="8" cols="40" maxlength="2500" placeholder="Enter your feedback here"></textarea></td>
                         </tr>
                         <tr id="row6">
-                            <td colspan="2" align="center"><button id="Submit">Submit</button></td>
+                            <td colspan="2" align="center"><button id="Submit" type="submit">Submit</button></td>
                         </tr>
                     </table>
                 </form>
@@ -44,7 +43,8 @@
     </table>
 
     <div id="lookup" style="display: none;">
-        <h4>Thank you for your feedback!</h4> <p>Here's what you submitted:</p>
+        <h4>Thank you for your feedback!</h4>
+        <p>Here's what you submitted:</p>
         <p id="Details"></p>
     </div>
 
@@ -76,6 +76,9 @@
 
             document.getElementById("lookup").style.display = "block";
             document.getElementById("Details").innerHTML = detailsTable;
+
+            document.querySelector("form").reset(); // Reset the form
+            document.getElementById("Submit").disabled = true; // Disable the submit button
         });
     </script>
 
