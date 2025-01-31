@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Feedback Form</title>
+</head>
+<body>
+
+    <table align="center">
+        <tr>
+            <td>
+                <h3 style="padding-left: 130px;"
+                style="padding-bottom: 20px;">Customer Feedback</h3>
+                <form action="#" method="get">
+                    <table cellpadding="5">
+                        <tr id="row1">
+                            <td><label for="firstName">First Name (*):</label></td>
+                            <td><input type="text" id="firstName" name="firstName" required placeholder="First Name"></td>
+                        </tr>
+                        <tr id="row2">
+                            <td><label for="lastName">Last Name:</label></td>
+                            <td><input type="text" id="lastName" name="lastName" placeholder="Last Name"></td>
+                        </tr>
+                        <tr id="row3">
+                            <td><label for="email">Email (*):</label></td>
+                            <td><input type="email" id="email" name="email" required placeholder="Email Address"></td>
+                        </tr>
+                        <tr id="row4">
+                            <td><label for="phone">Phone Number:</label></td>
+                            <td><input type="tel" id="phone" name="phone" placeholder="Phone Number"></td>
+                        </tr>
+                        <tr id="row5">
+                            <td valign="top"><label for="message">Message (Less than 2500 words):</label></td>
+                            <td><textarea id="message" name="message" rows="8" cols="40" maxlength="2500" placeholder="Enter your feedback here"></textarea></td>
+                        </tr>
+                        <tr id="row6">
+                            <td colspan="2" align="center"><button id="Submit">Submit</button></td>
+                        </tr>
+                    </table>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <div id="lookup" style="display: none;">
+        <h4>Thank you for your feedback!</h4> <p>Here's what you submitted:</p>
+        <p id="Details"></p>
+    </div>
+
+    <script>
+        document.getElementById("Submit").addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent form submission
+
+            let firstName = document.getElementById("firstName").value;
+            let lastName = document.getElementById("lastName").value;
+            let email = document.getElementById("email").value;
+            let phone = document.getElementById("phone").value;
+            let message = document.getElementById("message").value;
+
+            if (!firstName || !email) {
+                alert("Please fill in all mandatory fields.");
+                return;
+            }
+
+            let detailsTable = `
+                <table border="1">
+                    <tr><th>Field</th><th>Details</th></tr>
+                    <tr><td>First Name</td><td>${firstName}</td></tr>
+                    <tr><td>Last Name</td><td>${lastName}</td></tr>
+                    <tr><td>Email</td><td>${email}</td></tr>
+                    <tr><td>Phone Number</td><td>${phone}</td></tr>
+                    <tr><td>Message</td><td>${message}</td></tr>
+                </table>
+            `;
+
+            document.getElementById("lookup").style.display = "block";
+            document.getElementById("Details").innerHTML = detailsTable;
+        });
+    </script>
+
+</body>
+</html>
